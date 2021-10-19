@@ -1,39 +1,51 @@
 import React from 'react';
+import './App.css';
 export default App;
 
 function App() {
-  /*const styles ={
-    height:'150px',
-    width:'150px',
-    backgroundColor:'pink'
-  };*/
+  
+  var nums = [1,2,3,4,5,6,7,8,9];
+  var ranNums = [];
+  var i = nums.length;
+  var j = 0;
+
+  while (i--) {
+    j = Math.floor(Math.random() * (i+1));
+    ranNums.push(nums[j]);
+    nums.splice(j,1); 
+    } 
+    
+  
 
   const Square = () => {
   return <div>
-    <div className='first-row'>
-      <button id ='1'>1</button>
-      <button id ='2'>2</button>
-      <button id ='3'>3</button>
+    <div className='board-row'>
+      <button id ='1' className='square'>{ranNums[0]}</button>
+      <button id ='2' className='square'>{ranNums[1]}</button>
+      <button id ='3' className='square'>{ranNums[2]}</button>
     </div>
     
-    <div className='second-row'>
-      <button id ='4' >4</button>
-      <button id ='5' >5</button>
-      <button id ='6' >6</button>
+    <div className='board-row'>
+      <button id ='4' className='square'>{ranNums[3]}</button>
+      <button id ='5' className='square'>{ranNums[4]}</button>
+      <button id ='6' className='square'>{ranNums[5]}</button>
     </div>
 
-    <div className='third-row'>
-      <button id ='7' >7</button>
-      <button id ='8' >8</button>
-      <button id ='9' >9</button>
+    <div className='board-row'>
+      <button id ='7' className='square'>{ranNums[6]}</button>
+      <button id ='8' className='square'>{ranNums[7]}</button>
+      <button id ='9' className='square'>{ranNums[8]}</button>
     </div>
+    
 
-  </div>;}
+  </div>; }
     
   return (
     <div>
       <Square />
+
     </div>
+    
   );
 
 }
