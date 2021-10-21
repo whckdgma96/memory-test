@@ -13,9 +13,12 @@
   width: 34px;
 }
 
+.square .disappear {
+  display:None
+}
+
 .board-row:after {
   clear: both;
   content: "";
   display: table;
 }
-
