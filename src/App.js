@@ -64,20 +64,20 @@ function App() {
   return <div>
     <div className='board-row'>
       <button id ='1' className='square' value={ranNums[0]} onClick={handleClick}><div className={dis?'disappear':''}>{ranNums[0]}</div></button>
-      <button id ='2' className='square' value={ranNums[1]} onClick={handleClick}><div className='disappear'>{ranNums[1]}</div></button>
-      <button id ='3' className='square' value={ranNums[2]} onClick={handleClick}><div className='disappear'>{ranNums[2]}</div></button>
+      <button id ='2' className='square' value={ranNums[1]} onClick={handleClick}><div className={dis?'disappear':''}>{ranNums[1]}</div></button>
+      <button id ='3' className='square' value={ranNums[2]} onClick={handleClick}><div className={dis?'disappear':''}>{ranNums[2]}</div></button>
     </div>
     
     <div className='board-row'>
-      <button id ='4' className='square' value={ranNums[3]} onClick={handleClick}><div className='disappear'>{ranNums[3]}</div></button>
-      <button id ='5' className='square' value={ranNums[4]} onClick={handleClick}><div className='disappear'>{ranNums[4]}</div></button>
-      <button id ='6' className='square' value={ranNums[5]} onClick={handleClick}><div className='disappear'>{ranNums[5]}</div></button>
+      <button id ='4' className='square' value={ranNums[3]} onClick={handleClick}><div className={dis?'disappear':''}>{ranNums[3]}</div></button>
+      <button id ='5' className='square' value={ranNums[4]} onClick={handleClick}><div className={dis?'disappear':''}>{ranNums[4]}</div></button>
+      <button id ='6' className='square' value={ranNums[5]} onClick={handleClick}><div className={dis?'disappear':''}>{ranNums[5]}</div></button>
     </div>
 
     <div className='board-row'>
-      <button id ='7' className='square' value={ranNums[6]} onClick={handleClick}><div className='disappear'>{ranNums[6]}</div></button>
-      <button id ='8' className='square' value={ranNums[7]} onClick={handleClick}><div className='disappear'>{ranNums[7]}</div></button>
-      <button id ='9' className='square' value={ranNums[8]} onClick={handleClick}><div className='disappear'>{ranNums[8]}</div></button>
+      <button id ='7' className='square' value={ranNums[6]} onClick={handleClick}><div className={dis?'disappear':''}>{ranNums[6]}</div></button>
+      <button id ='8' className='square' value={ranNums[7]} onClick={handleClick}><div className={dis?'disappear':''}>{ranNums[7]}</div></button>
+      <button id ='9' className='square' value={ranNums[8]} onClick={handleClick}><div className={dis?'disappear':''}>{ranNums[8]}</div></button>
     </div>
     
     <div>입력한 버튼 : {ans}</div>
