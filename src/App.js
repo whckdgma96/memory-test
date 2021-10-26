@@ -6,7 +6,7 @@ var ranNums = [];
 
 function App() {
     const [newArray, setNewArray] = useState()
-
+    const [score, setScore] = useState(0);
 
     const gameStart = event => {
     event.preventDefault();
@@ -27,6 +27,19 @@ function App() {
       
     return newArray
   }
+
+  const scoring = (event) => {
+    event.preventDefault();
+    const answersheet = [1,2,3,4,5,6,7,8,9];
+    var tempscore= 100;
+    for(var i=0; i<answersheet.length; i++){
+      if(answersheet[i] !== parseInt(ans[i])){
+        tempscore -= 10;
+        console.log(answersheet[i], ans[i], tempscore);
+      } else {}
+    }setScore(tempscore); 
+  }
+
   const [dis, setDis] = useState(false);
   useEffect(()=>{
     console.log(newArray);
@@ -68,7 +81,9 @@ function App() {
     </div>
     
     <div>입력한 버튼 : {ans}</div>
+    <div>점수 : {score}</div>
     <button onClick={gameStart}>시작</button>
+    <button onClick={scoring}>채점</button>
 
   </div>; }
     
