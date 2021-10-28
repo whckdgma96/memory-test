@@ -1,24 +1,69 @@
-.square {
-  background: white;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 34px;
+@font-face {
+  font-family: 'Cafe24Oneprettynight';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: #88E0EF;
+}
+.square {
+  background:#FF5151;
+  border: 1px solid #161E54;
+  font-size: 40px;
+  font-weight: bold;
+  color: #161E54;
+  line-height: 80px;
+  height: 80px;
+  margin: -1px -1px -1px -1px;
+  padding: -1px -1px -1px -1px;
+  text-align: center;
+  width: 80px;
+  font-family: 'Cafe24Oneprettynight';
+}
+h2, h5, h4{
+  display: block;
+  margin: 15px 20px;
+  color: #161E54;
+  font-family: 'Cafe24Oneprettynight';
+  text-align: center;
+}
+
 
 .square .disappear {
   display:None
 }
 
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
+.board-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  place-items: center;
+
+}
+
+.buttons button {
+  background-color: #FF9B6A;
+  margin: 0 20px 20px 20px;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  width: 60px;
+  color: #161E54;
+  font-size: 18px;
+  font-family: 'Cafe24Oneprettynight';
+  font-weight: bold;
+
+}
+
+.buttons button:hover{
+  box-shadow: 5px 5px 5px gray;
 }
