@@ -16,15 +16,28 @@
   min-height: 100vh;
   background-color: #88E0EF;
 }
+
+ #one {
+  border-top-left-radius: 5px;
+}
+#three {
+  border-top-right-radius: 5px;
+}
+#seven {
+  border-bottom-left-radius: 5px;
+}
+#nine {
+  border-bottom-right-radius: 5px;
+}
 .square {
-  background:#FF5151;
+  background:linear-gradient(#FF9B6A, #FF5151);
   border: 1px solid #161E54;
   font-size: 40px;
   font-weight: bold;
   color: #161E54;
   line-height: 80px;
   height: 80px;
-  margin: -1px -1px -1px -1px;
+  margin: -1px 0 0 -1px;
   padding: -1px -1px -1px -1px;
   text-align: center;
   width: 80px;
