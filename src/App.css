@@ -8,16 +8,58 @@
 * {
   margin: 0;
   padding: 0;
+  /* list-style:none; */
+}
+
+.scoreboard {
+  position: absolute;
+  display: block;
+  top: 25%;
+  right: 20px;
+  height: 40vh;
+  width: 250px;
+  background-color: #88E0EF;
+  border: solid 1px #161E54;
+}
+
+.scoreboard > p {
+  text-align: center;
+  font-weight: bold;
+  color: #161E54;
+  margin-top: 20px;
+  font-size: 25px;
+  font-family: 'Cafe24Oneprettynight';
 }
 
 .container {
   display: grid;
+  float: center;
   place-items: center;
   min-height: 100vh;
   background-color: #88E0EF;
+
+}
+.buttons2 {
+
+  display: flex;
+  place-items: center;
+  margin-left: 55px;
+}
+.buttons2 button {
+  background-color: #FF9B6A;
+  margin: 0 10px 0 10px;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  width: 50px;
+  color: #161E54;
+  font-size: 18px;
+  font-family: 'Cafe24Oneprettynight';
+  font-weight: bold;
+
 }
 
- #one {
+#one {
   border-top-left-radius: 5px;
 }
 #three {
