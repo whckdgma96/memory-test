@@ -7,10 +7,15 @@ var ranNums = [];
 function App() {
   const [newArray, setNewArray] = useState()
   const [score, setScore] = useState(0);
+
+  // 게임 스코어를 저장하는 state
+  // 점수판에 표시되는 데이터를 여기에 저장하고 사용함
   const [gameHistory, setGameHistory] = useState([])
     
-
+  // 페이지가 로딩될 때 마다 flask서버의 /api의 데이터를 불러 옴
+  // 불러오는 데이터 : [ {'id':xx, 'score':xx}, {'id':xx, 'score':xx}, ..]
   useEffect(() => {
+    // 이것들이 .then을 거쳐 json 형태로 return 됨
     fetch('/api').then(response => {
       if(response.ok){
         console.log('good')
@@ -18,16 +23,57 @@ function App() {
       } else{
         console.log('something is wrong')
       }
+      // json화 된 데이터들이 setGameHistory state에 저장 됨
     }).then(data => setGameHistory(data))
   }, [])
 
 
+    // listOfHistory = State gameHistory 
+    // Square 함수에 컴포넌트 형식으로 Records가 들어가 있는데
+    // 여기서 gameHistory 를 listOfHistory라는 속성이름에 전달함
+const Records = ({ listOfHistory }) => {
+  // gameHistory의 데이터가 한개라도 있을 때
+  // .length를 사용할 때에 array에 값이 하나도 없으면 에러가 뜨기 때문에 if문으로 조건을 걸음
+    if (listOfHistory.length > 0){
+        return (
+            <div className = 'scoreboard'>
+              <h2>😆점수판😆</h2>
+              <div className='buttons2'>
+                  <button onClick={saveRecord}>저장</button>
+                  <button onClick={deleteRecord}>삭제</button>
+              </div>
+                {/* map을 거친 하나의 game의 형태 {'id':xx, 'score':xx} */}
+                {listOfHistory.map(game => {
+                    return (
+                        // id와 score 출력
+                        <p>Game  {game.id} : {game.score}점</p>
+                    )
+                })}
+            </div>
+        )
+      // gameHistory의 데이터가 하나도 없을 때
+    } else {
+        return (
+            <div className = 'scoreboard'>
+                <h2>😆점수판😆</h2>
+                <div className='buttons2'>
+                  <button onClick={saveRecord}>저장</button>
+                  <button onClick={deleteRecord}>삭제</button>
+              </div>
+            </div>
+        )
+    }
+    
+}
 
   const saveRecord = (event) => {
     event.preventDefault();
     fetch('api/add', {
       method: "POST",
+      // body안의 내용이 flask서버의 json.loads로 호출 됨
       body: JSON.stringify({
+
+        // 'score'라는 field값 : State인 score <- 점수 판에 표시되는 score
         score: score
       })
     })//.then(response => response.json())
@@ -39,13 +85,17 @@ function App() {
     event.preventDefault();
     fetch('api/delete', {
       method: "DELETE",
+      // body안의 내용이 flask서버의 json.loads로 호출 됨
       body: JSON.stringify({
+        // 'score'라는 field값 : State인 score <- 점수 판에 표시되는 score
         score: score
       })
-    }).then(response => response.json())
+    })//.then(response => response.json())
     .then(window.location.reload())
   }
 
+
+  
 
   const gameStart = event => {
   event.preventDefault();
@@ -162,38 +212,7 @@ function App() {
   const [click8, setClick8] = useState(false);
 
   const [click9, setClick9] = useState(false);
-  
-const Records = ({ listOfHistory }) => {
-    if (listOfHistory.length > 0){
-        return (
-            <div className = 'scoreboard'>
-              <h2>😆점수판😆</h2>
-              <div className='buttons2'>
-                  <button onClick={saveRecord}>저장</button>
-                  <button onClick={deleteRecord}>삭제</button>
-              </div>
-              
-                {listOfHistory.map(game => {
-                    return (
 
-                        <p>Game  {game.id} : {game.score}점</p>
-                    )
-                })}
-            </div>
-        )
-    } else {
-        return (
-            <div className = 'scoreboard'>
-                <h2>😆점수판😆</h2>
-                <div className='buttons2'>
-                  <button onClick={saveRecord}>저장</button>
-                  <button onClick={deleteRecord}>삭제</button>
-              </div>
-            </div>
-        )
-    }
-    
-}
 
   const Square = () => {
   return (
